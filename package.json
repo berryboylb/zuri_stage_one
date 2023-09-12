@@ -1,5 +1,5 @@
 {
-  "name": "bankapp",
+  "name": "zuri",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -15,12 +15,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/mongoose": "^5.11.97",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-rate-limit": "^6.7.0",
-    "mongoose": "^7.3.1",
     "zod": "^3.21.4"
   },
   "devDependencies": {
