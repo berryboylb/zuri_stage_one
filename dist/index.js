@@ -8,7 +8,6 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const ratelimiter_1 = __importDefault(require("./middleware/ratelimiter"));
-const routes_1 = __importDefault(require("./routes"));
 const middleware_1 = require("./middleware");
 const utils_1 = require("./utils");
 const validators_1 = require("./validators");
@@ -22,8 +21,6 @@ app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json({ extended: false }));
 app.use((0, ratelimiter_1.default)());
 app.use(middleware_1.logger);
-//these are our routes
-app.use("/api/v1", routes_1.default);
 app.get("/", (0, validator_1.validateQuery)(validators_1.Dto), (_req, res) => {
     const { slack_name, track } = _req.query;
     res.status(200).json({

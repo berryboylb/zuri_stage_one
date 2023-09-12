@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
 import limiter from "./middleware/ratelimiter";
-import routes from "./routes";
 import { logger, errorResponder, invalidPathHandler } from "./middleware";
 import { daysOfWeek } from "./utils";
 import { Dto } from "./validators";
@@ -19,8 +18,6 @@ app.use(express.json({ extended: false } as any));
 app.use(limiter());
 app.use(logger);
 
-//these are our routes
-app.use("/api/v1", routes);
 app.get("/", validateQuery(Dto), (_req: Request, res: Response) => {
   const { slack_name, track } = _req.query;
   res.status(200).json({
