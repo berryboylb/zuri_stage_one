@@ -27,7 +27,7 @@ app.get("/api", validateQuery(Dto), (_req: Request, res: Response) => {
   res.status(200).json({
     slack_name,
     current_day: daysOfWeek[new Date().getDay()],
-    utc_time: new Date(),
+    utc_time: new Date().toISOString().split(".")[0] + "Z",
     track,
     github_file_url:
       "https://github.com/berryboylb/zuri_stage_one/blob/main/src/index.ts",
