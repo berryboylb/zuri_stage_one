@@ -18,7 +18,11 @@ app.use(express.json({ extended: false } as any));
 app.use(limiter());
 app.use(logger);
 
-app.get("/", validateQuery(Dto), (_req: Request, res: Response) => {
+app.get("/", (_req: Request, res: Response) => {
+  res.send("Hello Zuri mentor");
+});
+
+app.get("/api", validateQuery(Dto), (_req: Request, res: Response) => {
   const { slack_name, track } = _req.query;
   res.status(200).json({
     slack_name,

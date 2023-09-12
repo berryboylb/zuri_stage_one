@@ -21,7 +21,10 @@ app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(express_1.default.json({ extended: false }));
 app.use((0, ratelimiter_1.default)());
 app.use(middleware_1.logger);
-app.get("/", (0, validator_1.validateQuery)(validators_1.Dto), (_req, res) => {
+app.get("/", (_req, res) => {
+    res.send("Hello Zuri mentor");
+});
+app.get("/api", (0, validator_1.validateQuery)(validators_1.Dto), (_req, res) => {
     const { slack_name, track } = _req.query;
     res.status(200).json({
         slack_name,
