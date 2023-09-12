@@ -28,8 +28,9 @@ app.get("/", validateQuery(Dto), (_req: Request, res: Response) => {
     current_day: daysOfWeek[new Date().getDay()],
     utc_time: new Date(),
     track,
-    github_file_url: "https://github.com/username/repo/blob/main/file_name.ext",
-    github_repo_url: "https://github.com/username/repo",
+    github_file_url:
+      "https://github.com/berryboylb/zuri_stage_one/blob/main/src/index.ts",
+    github_repo_url: "https://github.com/berryboylb/zuri_stage_one",
     status_code: 200,
   });
 });
